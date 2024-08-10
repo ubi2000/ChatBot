@@ -44,7 +44,7 @@ exports.getProfile = async (req, res) => {
     res.status(401).json({ message: "Server Error" });
   }
 };
-exports.requestPasswordRequest = async (req,res) => {
+exports.requestPasswordRequest = async (req, res) => {
   const { email } = req.body;
   try {
     const user = await User.findOne({ email });
@@ -79,7 +79,7 @@ exports.requestPasswordRequest = async (req,res) => {
   }
 };
 
-exports.resetPassword = async (req,res) => {
+exports.resetPassword = async (req, res) => {
   const { resetToken, password } = req.body;
   try {
     const resetPasswordToken = crypto
@@ -102,4 +102,8 @@ exports.resetPassword = async (req,res) => {
   } catch (error) {
     res.status(500).json({ message: "Server Error" });
   }
+};
+
+exports.logout =  (req, res) => {
+  res.status(200).json({ message: "Logout Successfull" });
 };

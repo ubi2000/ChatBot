@@ -20,6 +20,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan("dev"));
 
+
 //user Routes
 
 app.use("/user", userRoutes);
